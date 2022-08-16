@@ -1,5 +1,6 @@
 import tweepy.errors
-import config
+import os
+import dotenv
 from air_peace import AirPeace
 import time
 
@@ -36,8 +37,9 @@ def process_tweet(tweet):
         return "Keyword #skyfind not detected, try again."
 
 
-auth = tweepy.OAuthHandler(config.API_Key, config.API_Secret_Key)
-auth.set_access_token(config.Access_Token, config.Access_Token_Secret)
+dotenv.load_dotenv()
+auth = tweepy.OAuthHandler(os.environ["API_Key"], os.environ["API_Secret_Key"])
+auth.set_access_token(os.environ["Access_Token"], os.environ["Access_Token_Secret"])
 api = tweepy.API(auth)
 
 
@@ -156,4 +158,5 @@ def run_app():
 
 while True:
     run_app()
-    time.sleep(2)
+    print("running")
+    time.sleep(30)

@@ -11,7 +11,7 @@ import time
 
 air_peace_url = "https://www.flyairpeace.com/"
 chrome_driver_path = "/Users/kingbarz/Documents/Development/chromedriver"
-wait_time = 60
+wait_time = 20
 
 
 class AirPeace:
