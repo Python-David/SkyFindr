@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 import time
 
 air_peace_url = "https://www.flyairpeace.com/"
-chrome_driver_path = "/Users/kingbarz/Documents/Development/chromedriver"
+# chrome_driver_path = "/Users/kingbarz/Documents/Development/chromedriver"
 wait_time = 20
 
 
@@ -29,8 +29,7 @@ class AirPeace:
             chrome_options.add_argument("--headless")
             chrome_options.add_argument("--disable-dev-shm-usage")
             chrome_options.add_argument("--no-sandbox")
-            self.service = Service(executable_path=os.environ.get("CHROMEDRIVER_PATH"))
-            self.driver = webdriver.Chrome(self.service, options=chrome_options)
+            self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
 
             # self.driver = webdriver.Chrome(service=self.service)
             self.driver.implicitly_wait(wait_time)
@@ -117,8 +116,14 @@ class AirPeace:
     def get_any_day_flight_details_one_way(self, user_day, user_month, user_year, origin, destination):
         try:
             # 0. Open the landing page
-            self.service = Service(chrome_driver_path)
-            self.driver = webdriver.Chrome(service=self.service)
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--disable-dev-shm-usage")
+            chrome_options.add_argument("--no-sandbox")
+            self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+
+            # self.driver = webdriver.Chrome(service=self.service)
             self.driver.implicitly_wait(wait_time)
             self.driver.get(air_peace_url)
 
@@ -225,8 +230,14 @@ class AirPeace:
                                           user_return_year, origin, destination):
         try:
             # 0. Open the landing page
-            self.service = Service(chrome_driver_path)
-            self.driver = webdriver.Chrome(service=self.service)
+            chrome_options = webdriver.ChromeOptions()
+            chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+            chrome_options.add_argument("--headless")
+            chrome_options.add_argument("--disable-dev-shm-usage")
+            chrome_options.add_argument("--no-sandbox")
+            self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+
+            # self.driver = webdriver.Chrome(service=self.service)
             self.driver.implicitly_wait(wait_time)
             self.driver.get(air_peace_url)
 
