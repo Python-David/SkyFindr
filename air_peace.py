@@ -92,19 +92,18 @@ class AirPeace:
                 flight_info[num] = price_list[num], time_list[num]
 
             if len(flight_info) > 0:
-                print(flight_info)
+                return flight_info
             else:
-                print("Sorry, no flights found.")
-
-            self.driver.close()
+                self.driver.close()
+                return "Sorry, no flights found."
 
         except NoSuchElementException:
-            print("Cannot return flight details for this destination. Maybe try a different airline for the "
-                  "destination you want to go.")
+            return "Cannot return flight details for this destination. Maybe try a different airline for the " \
+                   "destination you want to go. "
         except ElementClickInterceptedException:
-            print("Network error, please try again.")
+            return "Network error, please try again."
         except StaleElementReferenceException:
-            print("Invalid return date selected. Try picking a closer date")
+            return "Invalid return date selected. Try picking a closer date"
 
     def get_any_day_flight_details_one_way(self, user_day, user_month, user_year, origin, destination):
         try:
@@ -200,19 +199,18 @@ class AirPeace:
                 flight_info[num] = price_list[num], time_list[num]
 
             if len(flight_info) > 0:
-                print(flight_info)
+                return flight_info
             else:
-                print("Sorry, no flights found.")
-
-            self.driver.close()
+                self.driver.close()
+                return "Sorry, no flights found."
 
         except NoSuchElementException:
-            print("Cannot return flight details for this destination. Maybe try a different airline for the "
-                  "destination you want to go.")
+            return "Cannot return flight details for this destination. Maybe try a different airline for the " \
+                   "destination you want to go. "
         except ElementClickInterceptedException:
-            print("Network error, please try again.")
+            return "Network error, please try again."
         except StaleElementReferenceException:
-            print("Invalid return date selected. Try picking a closer date")
+            return "Invalid return date selected. Try picking a closer date"
 
     def get_any_day_flight_details_return(self, user_day, user_month, user_year, user_return_day, user_return_month,
                                           user_return_year, origin, destination):
@@ -341,16 +339,16 @@ class AirPeace:
                 flight_info[num] = price_list[num], time_list[num], flight_type[num]
 
             if len(flight_info) > 0:
-                print(flight_info)
+                return flight_info
             else:
-                print("Sorry, no flights found.")
+                return "Sorry, no flights found."
 
             # self.driver.close()
 
         except NoSuchElementException:
-            print("Cannot return flight details for this destination. Maybe try a different airline for the "
-                  "destination you want to go.")
+            return "Cannot return flight details for this destination. Maybe try a different airline for the " \
+                   "destination you want to go. "
         except ElementClickInterceptedException:
-            print("Network error, please try again.")
+            return "Network error, please try again."
         except StaleElementReferenceException:
-            print("Invalid return date selected. Try picking a closer date")
+            return "Invalid return date selected. Try picking a closer date"

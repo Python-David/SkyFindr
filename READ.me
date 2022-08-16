@@ -21,6 +21,8 @@ State 1 App flow:
 
 3. Tweet these details at a certain time everyday
 
+4. Give users link to book the flight
+
 Problems and exceptions
 
 1. What to do if there are no flights #
@@ -28,7 +30,20 @@ Problems and exceptions
 3. Handle exception error (customer might need to restart)
 4. When entering destination, get list of possible locations = This can be handled with exceptions
 (NoSuchElementException: Message: Cannot locate option with value: ABV) #
+5. Date functionality, make sure they can't go back - before running anything back end, confirm that their date inputs
+are valid
 
 TODO
 
 1. When collecting the dates from the twitter user, if len(date) == 1, then add a 0 in front
+
+NEXT STEPS
+
+1. Collect user tweet
+2. Process user tweet to make sure it fits
+3. Feed user tweet into flight function
+4. Reply/DM user the output
+
+# FURTHER
+
+1. Use #skyfind to find events in Lagos, on Twitter
