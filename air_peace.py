@@ -29,9 +29,9 @@ class AirPeace:
             chrome_options.add_argument("--headless")
             chrome_options.add_argument("--disable-dev-shm-usage")
             chrome_options.add_argument("--no-sandbox")
-            self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+            self.service = Service(executable_path=os.environ.get("CHROMEDRIVER_PATH"))
+            self.driver = webdriver.Chrome(self.service, options=chrome_options)
 
-            # self.service = Service(chrome_driver_path)
             # self.driver = webdriver.Chrome(service=self.service)
             self.driver.implicitly_wait(wait_time)
             self.driver.get(air_peace_url)
